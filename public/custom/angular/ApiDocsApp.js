@@ -10,14 +10,6 @@ app.controller('ApiDocsContentController', function ($scope,$http) {
         // this callback will be called asynchronously
         // when the response is available
         $scope.apiDocTitleVersions =  response.data.resultData.data;
-
-        // alert($scope.apiDocTitleVersions);
-
-        // SwaggerParser.parse($scope.apiDoc.swagger)
-        //     .then(function(api) {
-        //         console.log("API name: %s, Version: %s", api.info.title, api.info.version,api.tags,api.paths);
-        //     });
-
     }, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.

@@ -59,15 +59,6 @@ app.controller('ApiDesignController', function ($scope, $http, $window) {
         $scope.editor_code.data = json_swagger;
     }
 
-    //
-    // $scope.addApiPath = function (info,urlPath,tagInfo) {
-    //     var dataGuide={};
-    //     var apiData={"get":{"tags":[tagInfo],"summary":"getAccount","operationId":"getAccountUsingGET","consumes":["application/json"],"produces":["application/json"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/UserDTO"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}},"post":{"tags":["account-resource"],"summary":"saveAccount","operationId":"saveAccountUsingPOST","consumes":["application/json"],"produces":["application/json"],"parameters":[{"in":"body","name":"userDTO","description":"userDTO","required":true,"schema":{"$ref":"#/definitions/UserDTO"}}],"responses":{"200":{"description":"OK","schema":{"type":"string"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}};        dataGuide[urlPath]=apiData;
-    //     $scope.editor_code.data = dataGuide;
-    //     alert(JSON.stringify($scope.editor_code.data));
-    //     $("#addGuide").hide();
-    // }
-
     $scope.apiSave = function () {
         $http({
             method: 'GET',

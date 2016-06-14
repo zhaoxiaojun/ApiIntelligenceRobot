@@ -20,7 +20,6 @@ import services.scenarios.ScenarioImplMongo;
 import services.utils.swagger.core.util.Json;
 import services.utils.verify.check.CheckRuleImpl;
 import services.utils.verify.request.SendHttpRequest;
-import views.html.commons.LoginPage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,7 +38,6 @@ public class ScenarioController extends Controller {
     public Result getScenariosByEmailOne() {
         String user = session("UserInfo");
         if (null == user) {
-//            return ok(LoginPage.render());
             return ok(services.utils.swagger.core.util.Json.pretty(ResultData.getErrorInstance("请先进行登录", "getScenariosByEmailOne")));
         }
         UserInfo userInfo = UtilController.getSessionUserInfo(user);
@@ -55,7 +53,6 @@ public class ScenarioController extends Controller {
     public Result getScenariosByEmail() {
         String user = session("UserInfo");
         if (null == user) {
-//            return ok(LoginPage.render());
             return ok(services.utils.swagger.core.util.Json.pretty(ResultData.getErrorInstance("请先进行登录", "getScenariosByEmail")));
 
         }
@@ -82,7 +79,6 @@ public class ScenarioController extends Controller {
     public Result addScenario() {
         String user = session("UserInfo");
         if (null == user) {
-//            return ok(LoginPage.render());
             return ok(services.utils.swagger.core.util.Json.pretty(ResultData.getErrorInstance("请先进行登录", "addScenario")));
 
         }
@@ -102,7 +98,6 @@ public class ScenarioController extends Controller {
     public Result getScenarioInfosByEmail() {
         String user = session("UserInfo");
         if (null == user) {
-//            return ok(LoginPage.render());
             return ok(services.utils.swagger.core.util.Json.pretty(ResultData.getErrorInstance("请先进行登录", "getScenarioInfosByEmail")));
 
         }
@@ -114,7 +109,6 @@ public class ScenarioController extends Controller {
     public Result getScenarioDocSimplifysByEmail() {
         String user = session("UserInfo");
         if (null == user) {
-//            return ok(LoginPage.render());
             return ok(services.utils.swagger.core.util.Json.pretty(ResultData.getErrorInstance("请先进行登录", "getScenarioDocSimplifysByEmail")));
 
         }
@@ -323,6 +317,8 @@ public class ScenarioController extends Controller {
 
         Map<String,String> saveParams = new HashMap<>();
 
+        String sessionId = "";
+
         for (int i = 0; i <= Integer.parseInt(orderNum_js); i++) {
             ScenarioApiInfo scenarioApiInfo = scenarioDoc.getDependsOn().get(i + "");
 
@@ -337,7 +333,13 @@ public class ScenarioController extends Controller {
 
             SendHttpRequest sendHttpRequest = new SendHttpRequest(scenarioApiInfo);
 
+            if(!sessionId.equals("")){
+                sendHttpRequest.setSessionId(sessionId);
+            }
+
             sendHttpRequest.sendHttpRequest();
+
+            sessionId = sendHttpRequest.getResponse().getSessionId();
 
             scenarioApiInfo.setResponse(sendHttpRequest.getResponse().asString());
 
@@ -363,6 +365,7 @@ public class ScenarioController extends Controller {
         ScenarioDoc scenarioDoc = scenarioDao.selectScenarioDocByScenarioId(scenarioId);
         Map<String,String> saveParams = new HashMap<>();
         Map<String, ScenarioApiInfo> dependsOn = scenarioDoc.getDependsOn();
+        String sessionId = "";
 
 
         for (Map.Entry<String, ScenarioApiInfo> dependOn : scenarioDoc.getDependsOn().entrySet()) {
@@ -380,8 +383,13 @@ public class ScenarioController extends Controller {
             scenarioApiInfo_send.setFieldValues(fieldValueList);
 
             SendHttpRequest sendHttpRequest = new SendHttpRequest(scenarioApiInfo_send);
-
+            if(!sessionId.equals("")){
+                sendHttpRequest.setSessionId(sessionId);
+            }
             sendHttpRequest.sendHttpRequest();
+
+            sessionId = sendHttpRequest.getResponse().getSessionId();
+
             scenarioApiInfo.setResponse(sendHttpRequest.getResponse().asString());
 
             for(int k=0;k<scenarioApiInfo.getChecks().size();k++){

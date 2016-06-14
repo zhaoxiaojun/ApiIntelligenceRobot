@@ -21269,7 +21269,7 @@
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-compiler;2.11.7!scala-compiler.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.11;1.0.4!scala-xml_2.11.jar(src)
 [debug] 	[NOT REQUIRED] jline#jline;2.12.1!jline.jar(src)
-[debug] :: resolution report :: resolve 6159ms :: artifacts dl 62ms
+[debug] :: resolution report :: resolve 7902ms :: artifacts dl 74ms
 [debug] 	report for apiintelligencerobot#apiintelligencerobot$sources_2.11;1.0-SNAPSHOT compile produced in /Users/apple/Documents/PRO/ApiIntelligenceRobot/target/resolution-cache/reports/apiintelligencerobot-apiintelligencerobot$sources_2.11-compile.xml
 [debug] 	report for apiintelligencerobot#apiintelligencerobot$sources_2.11;1.0-SNAPSHOT runtime produced in /Users/apple/Documents/PRO/ApiIntelligenceRobot/target/resolution-cache/reports/apiintelligencerobot-apiintelligencerobot$sources_2.11-runtime.xml
 [debug] 	report for apiintelligencerobot#apiintelligencerobot$sources_2.11;1.0-SNAPSHOT test produced in /Users/apple/Documents/PRO/ApiIntelligenceRobot/target/resolution-cache/reports/apiintelligencerobot-apiintelligencerobot$sources_2.11-test.xml
@@ -21283,4 +21283,4 @@
 [debug] 	report for apiintelligencerobot#apiintelligencerobot$sources_2.11;1.0-SNAPSHOT docs produced in /Users/apple/Documents/PRO/ApiIntelligenceRobot/target/resolution-cache/reports/apiintelligencerobot-apiintelligencerobot$sources_2.11-docs.xml
 [debug] 	report for apiintelligencerobot#apiintelligencerobot$sources_2.11;1.0-SNAPSHOT pom produced in /Users/apple/Documents/PRO/ApiIntelligenceRobot/target/resolution-cache/reports/apiintelligencerobot-apiintelligencerobot$sources_2.11-pom.xml
 [debug] 	report for apiintelligencerobot#apiintelligencerobot$sources_2.11;1.0-SNAPSHOT scala-tool produced in /Users/apple/Documents/PRO/ApiIntelligenceRobot/target/resolution-cache/reports/apiintelligencerobot-apiintelligencerobot$sources_2.11-scala-tool.xml
-[debug] 	resolve done (6159ms resolve - 62ms download)
+[debug] 	resolve done (7902ms resolve - 74ms download)

@@ -11,9 +11,6 @@ app.controller('ScenarioAddController', function ($scope, $http, $filter, $windo
     }).then(function successCallback(response) {
         console.log(response.data);
         $scope.simpleScenarios = response.data.resultData.data;
-        // $scope.scenarioTag = $scope.scenarioTagNames[0];
-        // $window.location='/scenarioDoc/'+tagName+'/'+scenarioName;
-        // alert(JSON.stringify($scope.simpleScenarios));
         // this callback will be called asynchronously
         // when the response is available
     }, function errorCallback(response) {
@@ -29,9 +26,6 @@ app.controller('ScenarioAddController', function ($scope, $http, $filter, $windo
         // this callback will be called asynchronously
         // when the response is available
         $scope.apiDocTitleVersions = response.data.resultData.data;
-
-        // alert($scope.apiDocTitleVersions);
-
     }, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
@@ -58,7 +52,6 @@ app.controller('ScenarioAddController', function ($scope, $http, $filter, $windo
                 data: postData
             }).then(function successCallback(response) {
                 $window.location = '/scenariosPage';
-                // alert(JSON.stringify(response));
                 // this callback will be called asynchronously
                 // when the response is available
             }, function errorCallback(response) {

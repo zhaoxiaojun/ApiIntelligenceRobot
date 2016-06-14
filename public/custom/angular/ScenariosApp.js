@@ -12,11 +12,7 @@ app.controller('ScenarioViewController', function ($scope, $http, $window) {
         method: 'GET',
         url: '/simplescenarios'
     }).then(function successCallback(response) {
-        // console.log(response.data);
         $scope.simpleScenarios = response.data.resultData.data;
-        // $scope.scenarioTag = $scope.scenarioTagNames[0];
-        // $window.location='/scenarioDoc/'+tagName+'/'+scenarioName;
-        // alert(JSON.stringify($scope.simpleScenarios));
         // this callback will be called asynchronously
         // when the response is available
     }, function errorCallback(response) {
@@ -35,8 +31,6 @@ app.controller('ScenarioViewController', function ($scope, $http, $window) {
         if($scope.dependsOnLength != 2){
             $scope.myScheme = $scope.scenarioDocInit.swagger.schemes[0];
         }
-
-        // $window.location='/scenarioDoc/'+tagName+'/'+scenarioName;
         // this callback will be called asynchronously
         // when the response is available
         $scope.scenarioDocDependsOn = $scope.scenarioDocInit.dependsOn;
@@ -112,22 +106,7 @@ app.controller('ScenarioViewController', function ($scope, $http, $window) {
             url: '/scenario/'+scenarioId+'/dependon',
             data:dependsOnInfo
         }).then(function successCallback(response) {
-            // alert(JSON.stringify(response.data.resultData.data));
-
             $scope.requestAll = response.data.resultData.data;
-
-            // this callback will be called asynchronously
-            // when the response is available
-            // $scope.responseData =  JSON.stringify(response);
-            // alert(JSON.stringify(response));
-            // var arrayObj = response.data.data;
-            // var resultInfo = JSON.stringify(arrayObj[orderNum]);
-            // var options = {
-            //     dom: "#jsonFormate"+"_"+orderNum
-            // };
-            //
-            // var jf = new JsonFormater(options);
-            // jf.doFormat(resultInfo);
         }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
@@ -223,8 +202,6 @@ app.controller('ScenarioViewController', function ($scope, $http, $window) {
             url: '/scenario/' + scenarioId+'/sendrequest'
         }).then(function successCallback(response) {
             $scope.requestAll = response.data.resultData.data;
-            // console.log(response.data);
-            // alert(JSON.stringify(response.data.resultData.data));
             // this callback will be called asynchronously
             // when the response is available
         }, function errorCallback(response) {
@@ -272,77 +249,6 @@ app.controller('ScenarioViewController', function ($scope, $http, $window) {
         };
 
     }
-
-
-
-    // $scope.viewTasks = function () {
-    //     $http({
-    //         method: 'GET',
-    //         url: '/tasksToJson'
-    //     }).then(function successCallback(response) {
-    //         console.log(JSON.stringify(response.data));
-    //         $scope.TaskInfos = response.data;
-    //         // this callback will be called asynchronously
-    //         // when the response is available
-    //     }, function errorCallback(response) {
-    //         // called asynchronously if an error occurs
-    //         // or server returns response with an error status.
-    //     });
-    // }
-
-    // $scope.viewResult = function (scenarioId) {
-    //     $window.location = '/scenarioResult/' + scenarioId;
-    //
-    // }
-
-    // $scope.deleteRepeatOption = function () {
-    //     $("select option").each(function () {
-    //         var text = $(this).text();
-    //         if ($("select option:contains(" + text + ")").length > 1)
-    //             $("select option:contains(" + text + "):gt(0)").remove();
-    //     });
-    // }
-
-    // $scope.AddCheck = function (requestInfo) {
-    //     console.log(JSON.stringify(requestInfo));
-    //     console.log($scope.responseData);
-    //     console.log(JSON.parse($scope.responseData));
-    //
-    // }
-
-    // $scope.setParams = function (scenarioApi) {
-    //     alert(scenarioApi);
-    //     $scope.scenarioApi_Params = scenarioApi;
-    //
-    // }
-
-    // $http.get("/api_manage/ApiManageInitServlet?result=all")
-    //     .success(function (response) {
-    //         //consoe.log(response);
-    //         $scope.apiInfos = response;
-    //     }).
-    // error(function (response) {
-    //     alert("getInfo_error" + response);
-    // });
-    //
-    // $scope.EditApiInfo = function () {
-    //     //console.log(JSON.stringify($scope.editApiInfo));
-    //     $scope.apiInfoEdit.paramIn=angular.fromJson($scope.apiParamInEdit);
-    //     $scope.apiInfoEdit.assertInfo=angular.fromJson($scope.apiAssertInfoEdit);
-    //
-    //     //$http({method : 'POST',params : $scope.editApiInfo, url : '/autoPlatform/operateDeviceServlet?result=editDevice'})
-    //     //    .success(function(response, status, headers, config){
-    //     //        //do anything what you want;
-    //     //        console.log("insert success");
-    //     //    })
-    //     //    .error(function(response, status, headers, config){
-    //     //        //do  anything what you want;
-    //     //        console.log("insert error");
-    //     //    });
-    //     //console.log(JSON.stringify($scope.devices));
-    // }
-    //
-
 });
 
 app.controller('ScenariosController', function ($scope, $http, $window) {
@@ -350,10 +256,7 @@ app.controller('ScenariosController', function ($scope, $http, $window) {
         method: 'GET',
         url: '/scenarios/infos'
     }).then(function successCallback(response) {
-        // console.log(response.data);
         $scope.scenarioTagNames = response.data.resultData.data;
-        // $window.location='/scenarioDoc/'+tagName+'/'+scenarioName;
-        // alert(JSON.stringify(response));
         // this callback will be called asynchronously
         // when the response is available
     }, function errorCallback(response) {
@@ -371,9 +274,7 @@ app.controller('ScenariosController', function ($scope, $http, $window) {
             url: '/scenario',
             data: JSON.parse(JSON.stringify(postData))
         }).then(function successCallback(response) {
-            // console.log(response.data);
             $window.location = '/scenarioDoc/' + tagName + '/' + scenarioName;
-            // alert(JSON.stringify(response));
             // this callback will be called asynchronously
             // when the response is available
         }, function errorCallback(response) {
@@ -384,218 +285,3 @@ app.controller('ScenariosController', function ($scope, $http, $window) {
 
 
 });
-
-// app.controller('ScenarioResultController', function ($scope) {
-//     $scope.Check = function (scenarioAPI, orderNum) {
-//         var resultInfo = JSON.stringify(scenarioAPI);
-//         var options = {
-//             dom: "#jsonFormate" + "_" + orderNum
-//         };
-//         // alert("#jsonFormate_start");
-//
-//         var jf = new JsonFormater(options);
-//         jf.doFormat(resultInfo);
-//         // alert("doFormat_finish");
-//
-//     }
-//
-// });
-
-// app.controller('runTargetCodeController', function ($scope) {
-//     $scope.selectedParams = [
-//         {
-//             "Name": "targetAppVersion",
-//             "Description":"APP目标版本",
-//             "Options": ["1.0", "2.0", "3.0"]
-//         },
-//         {
-//             "Name": "testAppVersion",
-//             "Description":"测试代码版本",
-//             "Options": ["1.0", "2.0", "3.0"]
-//         },
-//         {
-//             "Name": "testTemplate",
-//             "Description":"测试用例模板",
-//             "Options": ["Android 功能", "IOS 功能", "Android 稳定性", "IOS 稳定性"]
-//         },
-//         {
-//             "Name": "concurrencyTest",
-//             "Description":"是否并行测试",
-//             "Options": ["是", "否"]
-//         },
-//         {
-//             "Name": "testsGroup",
-//             "Description":"测试用例分组",
-//             "Options": ["P0", "P1", "P2", "P3"]
-//         }
-//
-//     ];
-// });
-//
-// app.controller('runStatusController', function ($scope) {
-//     $scope.SelectDevicesNum = function(items) {
-//         var num = 0;
-//         angular.forEach(items, function() {
-//             num++;
-//         });
-//         return num;
-//     }
-//     $scope.androidRunStatusEnsure = function () {
-//         alert("发送请求");
-//     }
-// });
-//
-// app.controller('autoTestController', function ($scope, $http) {
-//     $scope.includeURL = "webPage/pages/homePages/homePage.jsp";
-//     $scope.currentURL = function (currentPage) {
-//         switch (currentPage) {
-//             case 'Home':
-//                 $scope.includeURL = "webPage/pages/homePages/homePage.jsp";
-//                 break;
-//             case 'Android':
-//                 $scope.includeURL = "webPage/pages/androidPages/androidPage.jsp";
-//                 break;
-//             case 'IOS':
-//                 $scope.includeURL = "webPage/pages/iosPages/iosPage.jsp";
-//                 break;
-//             case 'WEB':
-//                 $scope.includeURL = "webPage/pages/webPages/webPage.jsp";
-//                 break;
-//             default:
-//                 $scope.includeURL = "webPage/pages/homePages/homePage.jsp";
-//                 break;
-//         }
-//     }
-// });
-//
-// app.controller('HomePageController', function ($scope, $http) {
-//     $scope.homeIncludeURL = "webPage/pages/homePages/functionsPage.jsp";
-//     $scope.homeCurrentURL = function (currentPage) {
-//         switch (currentPage) {
-//             case 'functions':
-//                 $scope.homeIncludeURL = "webPage/pages/homePages/functionsPage.jsp";
-//                 break;
-//             case 'qualities':
-//                 $scope.homeIncludeURL = "webPage/pages/homePages/qualitiesPage.jsp";
-//                 break;
-//             case 'help':
-//                 $scope.homeIncludeURL = "webPage/pages/homePages/helpPage.jsp";
-//                 break;
-//             case 'about':
-//                 $scope.homeIncludeURL = "webPage/pages/homePages/aboutPage.jsp";
-//                 break;
-//             case 'personalInfo':
-//                 $scope.homeIncludeURL = "webPage/pages/homePages/infoPage.jsp";
-//                 break;
-//             default:
-//                 $scope.homeIncludeURL = "webPage/pages/homePages/functionsPage.jsp";
-//                 break;
-//         }
-//     }
-// });
-//
-// app.controller('AndroidPageController', function ($scope) {
-//     $scope.androidIncludeURL = "webPage/pages/androidPages/functionsPage.jsp";
-//     $scope.androidTestType = {}; //1 monkey  2 能能测试  3 兼容测试
-//     $scope.jsonUDIDEnd = {};
-//     $scope.jsonParamNameEnd = {};
-//     $scope.jsonParamDescriptionEnd = {};
-//     $scope.androidCurrentURL = function (currentPage) {
-//         switch (currentPage) {
-//             case 'functions':
-//                 $scope.androidIncludeURL = "webPage/pages/androidPages/functionsPage.jsp";
-//                 break;
-//             case 'schedules':
-//                 $scope.androidIncludeURL = "webPage/pages/androidPages/schedulesPage.jsp";
-//                 break;
-//             case 'devices':
-//                 $scope.androidIncludeURL = "webPage/pages/androidPages/devicesPage.jsp";
-//                 break;
-//             case 'caseTemplate':
-//                 $scope.androidIncludeURL = "webPage/pages/androidPages/caseTemplatePage.jsp";
-//                 break;
-//             case 'runStatus':
-//                 $scope.androidIncludeURL = "webPage/pages/androidPages/runStatusPage.jsp";
-//                 break;
-//             case 'testTools':
-//                 $scope.androidIncludeURL = "webPage/pages/androidPages/testToolsPage.jsp";
-//                 break;
-//             case 'anyMore':
-//                 $scope.androidIncludeURL = "webPage/pages/androidPages/anyMorePage.jsp";
-//                 break;
-//             default:
-//                 $scope.androidIncludeURL = "webPage/pages/androidPages/functionsPage.jsp";
-//                 break;
-//         }
-//     }
-//     $scope.androidFunctionSelect = function (testType) {
-//         $scope.androidIncludeURL = "webPage/pages/androidPages/schedule/runTargetCodeVersion.jsp";
-//         $scope.androidTestType['testType'] = testType;
-//     }
-//     $scope.androidDeviceSelect = function (jsonUDID) {
-//         $scope.androidIncludeURL = "webPage/pages/androidPages/schedule/runStatus.jsp";
-//         angular.forEach(jsonUDID, function(value, key) {
-//             //console.log(value.toString()=="noSelected");
-//             if (value.toString()!="noSelected") {
-//                 $scope.jsonUDIDEnd [key] = value;
-//             }
-//         });
-//     }
-//     $scope.androidCodeTargetSelect = function (selectedParams) {
-//         $scope.androidIncludeURL = "webPage/pages/androidPages/schedule/devicesSelect.jsp";
-//         $scope.jsonParamNameEnd = selectedParams;
-//     }
-//
-//     $scope.deleteRepeatOption = function () {
-//         $("select option").each(function() {
-//             var text = $(this).text();
-//             if($("select option:contains("+text+")").length > 1)
-//                 $("select option:contains("+text+"):gt(0)").remove();
-//         });
-//     }
-//
-//     $scope.editAddDeviceAlertCloseBtn = function () {
-//         $scope.androidIncludeURL = "webPage/pages/androidPages/functionsPage.jsp";
-//         $scope.androidIncludeURL = "webPage/pages/androidPages/devicesPage.jsp";
-//     }
-// });
-//
-// app.controller('DeviceSelectController', function ($scope, $http) {
-//     $scope.jsonUDID = {};
-//     $http.get("/autoPlatform/operateDeviceServlet?result=selectDevices")
-//         .success(function (response) {
-//             $scope.devices = response;
-//         }).
-//     error(function (response) {
-//         alert("getDevices_error" + response);
-//     });
-// });
-
-// window.client = new SwaggerClient({
-//     url: "http://petstore.swagger.io/v2/swagger.json",
-//     success: function() {
-//         alert(2);
-//
-//         $scope.api2 = client.apis;
-//         alert($scope.api2);
-//
-//
-//         // upon connect, fetch a pet and set contents to element "mydata"
-//         // client.pet.getPetById({petId:1},{responseContentType: 'application/json'}, function(data) {
-//         //     // document.getElementById("mydata").innerHTML = JSON.stringify(data.obj);
-//         //     alert(JSON.stringify(data.obj));
-//         // });
-//     }
-// });
-
-// SwaggerParser.resolve($scope.scenarioDocInit.swagger,function($refs) {
-//         // Get the paths of ALL files in the API
-//         $refs.paths();
-//         alert("paths"+$refs.paths());
-//
-//         // Get the paths of local files only
-//         alert("pathfs"+$refs.paths("fs"));
-//
-//         // Get all URLs
-//         alert("pathshttp"+$refs.paths("http", "https"));
-//     });
