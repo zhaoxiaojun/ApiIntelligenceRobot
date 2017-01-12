@@ -18,6 +18,14 @@
 * 打包：./mvnw -Pprod clean package
 * 运行：java -jar target/*.war
 
+####Dev
+* 按照顺序在不同项目中运行命令
+
+```
+./mvnw
+```
+
+
 ####focked repository:
 
 * [jhipster](https://jhipster.github.io/)
