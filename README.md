@@ -1,11 +1,11 @@
 ##配置
 ####application.yml
-* defaultZone: http://admin:admin@localhost:8761/eureka/ 服务注册发现服务的地址
+* defaultZone: http://admin:admin@localhost:8761/eureka/ 服务注册发现服务的地址，对应于registry部署
 * spring.data.mongodb.uri: mongodb://localhost:27017 数据库地址
 * server.port: 8080 服务启动端口
 
 ####bootstrap.yml
-* spring.cloud.config.uri: http://admin:admin@localhost:8761/config  服务注册发现服务的地址
+* spring.cloud.config.uri: http://admin:admin@localhost:8761/config  服务注册发现服务的地址，对应于registry部署
 
 ####服务部署顺序
 * 部署服务注册与发现服务（registry）
